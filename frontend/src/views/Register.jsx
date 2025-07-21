@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Layout } from "../components/Layout"
-import { validatePassword } from "../validators/register" // asegúrate de tenerla creada
+import { validatePassword } from "../validators/register"
 
 const Register = () => {
     const [formData, setFormData] = useState({
