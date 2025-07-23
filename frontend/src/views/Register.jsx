@@ -28,7 +28,6 @@ const Register = () => {
 
         const { name, email, password } = formData
 
-        // Validaciones personalizadas
         if (!name || !email || !password) {
             setError("Todos los campos son obligatorios")
             return
@@ -82,8 +81,8 @@ const Register = () => {
 
     return (
         <Layout>
-            <h1>Registrate</h1>
-            <form onSubmit={handleSubmit}>
+            <h1 className="register-title">Registrate</h1>
+            <form onSubmit={handleSubmit} className="register-form">
                 <input
                     type="text"
                     name="name"
@@ -91,8 +90,8 @@ const Register = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    className="input-field"
                 />
-                <br />
 
                 <input
                     type="email"
@@ -101,8 +100,8 @@ const Register = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    className="input-field"
                 />
-                <br />
 
                 <input
                     type={showPassword ? "text" : "password"}
@@ -111,19 +110,21 @@ const Register = () => {
                     value={formData.password}
                     onChange={handleChange}
                     required
+                    className="input-field"
                 />
-                <button type="button" onClick={toggleShowPassword}>
+                
+                <button type="button" onClick={toggleShowPassword} className="toggle-password-btn">
                     {showPassword ? "Ocultar" : "Ver"} contraseña
                 </button>
-                <br />
 
-                <button type="submit">Registrar</button>
+                <button type="submit" className="submit-btn">Registrar</button>
             </form>
 
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            {message && <p style={{ color: "green" }}>{message}</p>}
+            {error && <p className="error-message">{error}</p>}
+            {message && <p className="success-message">{message}</p>}
         </Layout>
     )
 }
 
 export { Register }
+
